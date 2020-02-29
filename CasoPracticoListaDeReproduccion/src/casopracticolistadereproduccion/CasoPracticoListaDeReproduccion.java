@@ -56,9 +56,9 @@ public class CasoPracticoListaDeReproduccion {
                     break;
                 case 3:
                     System.out.println("Ingrese el nombre de la cancion que desea cambiar: \n");
-                    nombreCancion = teclado.nextLine();
+                    nombreCancion = teclado.next();
                     System.out.println("Ingrese el nombre de la nueva cancion: ");
-                    nombreCancion2 = teclado.nextLine();
+                    nombreCancion2 = teclado.next();
                     try {
                         myPlayList.update(nombreCancion, nombreCancion2);
                     } catch (Exception ex) {
