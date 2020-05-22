@@ -94,5 +94,61 @@ public class Graph {
             }
         }
     }
+    
+    public void Tour(int source) {
+        LinkedList<Integer> visited = new LinkedList<>();
+        for (int i = 0; i < totalNodes; i++) {
+            for (int v : aList[i]) {
+                if (visited.contains(i)) {
+                    System.out.print(v + " ");
+                    System.out.print(i + " ");
+                } else {
+                    visited.add(v);
+                }
+            }
+
+        }
+    }
+
+    private int Input(boolean aMatrix[][], int columna) {
+        int entradas = 0;
+        for (int i = 0; i < totalNodes; i++) {
+            if (aMatrix[i][columna]) {
+                entradas++;
+            }
+        }
+        return entradas;
+    }
+
+    private int Output(boolean aMatrix[][], int fila) {
+        int salidas = 0;
+        for (int j = 0; j < totalNodes; j++) {
+            if (aMatrix[fila][j]) {
+                salidas++;
+            }
+        }
+        return salidas;
+    }
+
+    public boolean quantityInputOuput() {
+        for (int i = 0; i < totalNodes; i++) {
+            if (Input(aMatrix, i) == Output(aMatrix, i)) {
+                   return true;
+            }
+        }
+        return false;
+    }
+    
+    public void missingEdge(){
+        boolean currentMatrix[][] = aMatrix;
+        for(int i = 0; i < totalNodes; i++){
+            for(int j = 0; j< totalNodes; j++){
+                if(!currentMatrix[i][j] && i!=j){
+                    System.out.println(i + "," + j);
+                    currentMatrix[j][i] = true;
+                }
+            }
+        }
+    }
 
 }

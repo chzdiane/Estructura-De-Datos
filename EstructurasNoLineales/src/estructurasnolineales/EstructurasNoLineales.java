@@ -28,6 +28,8 @@ public class EstructurasNoLineales {
         g0.addEdge("C", "E", 1);
         
         g0.showAList();
+        
+        /*
         Graph g1 = new Graph(7);
         g1.addEdge(0, 1);
         g1.addEdge(0, 2);
@@ -53,6 +55,8 @@ public class EstructurasNoLineales {
         System.out.println("Recorrido en anchura");
         g1.BFS(0);
         System.out.println("");
+        */
+        
         MaxHeap maxData = new MaxHeap();
         //31,51,53,28,47,22
         maxData.insert(31);
@@ -99,22 +103,53 @@ public class EstructurasNoLineales {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("\n ");
 
-//        BinarySearchTree pino = new BinarySearchTree(8);
-//        try {
-//            pino.Add(3);
-//            pino.Add(9);
-//            pino.InOrden();
-//            pino.Delete(3);
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//        System.out.println("");
-//
-//        pino.InOrden();
+        System.out.println("TALLER DE GRAFOS");
+        Graph g1 = new Graph(5);
+        g1.addEdge(0, 1);
+        g1.addEdge(0, 2);
+        g1.addEdge(0, 3);
+        g1.addEdge(1, 0);
+        g1.addEdge(2, 0);
+        g1.addEdge(3, 0);
+        //...
+//        g1.deleteEdge(0, 1);
+//        g1.deleteEdge(1, 2);
+        System.out.println("Matriz de adyacencias");
+        System.out.println(g1.showAMatrix());
+        System.out.println("Lista de adyacencias");
+        System.out.println(g1.showAList());
+
+        System.out.println("Recorrido en profundidad");
+        g1.DFS(1);
+        System.out.println("");
+        System.out.println("Recorrido en anchura");
+        g1.BFS(1);
+        System.out.println("");
         
-        //System.out.println(pino.Search(88));
+        System.out.println("RECORRER NODOS - PUNTO 1");
+        g1.Tour(1);
+        System.out.println("\n ");
+        
+        System.out.println("MISMO NUMERO DE ENTRADAS Y SALIDAS - PUNTO 2");
+        Graph g2 = new Graph(4);
+        g2.addEdge(0,1);
+        g2.addEdge(1,2);
+        g2.addEdge(2,0);
+        g2.addEdge(2,3);
+        g2.addEdge(3,2);
+        
+        System.out.println(g2.quantityInputOuput());
+        System.out.println("\n ");
+        
+        System.out.println("ARCOS FALTANTES - PUNTO 3");
+        Graph g3 = new Graph(4);
+        g3.addEdge(0, 1);
+        g3.addEdge(1, 2);
+        g3.addEdge(2, 0);
+        
+        g3.missingEdge();
     }
 
 }
